@@ -1,82 +1,90 @@
 .account-page {
-    padding: 16px;
+    padding: 24px 16px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .account-layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 20px;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
     align-items: start;
 }
 
 .account-sidebar {
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
     overflow: hidden;
     position: sticky;
-    top: 160px;
+    top: 150px;
 }
 
 .account-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 16px;
-    background: var(--primary);
+    gap: 14px;
+    padding: 20px 18px;
+    background: var(--primary-gradient);
     color: #fff;
 }
 
 .account-card strong {
     display: block;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .account-card small {
     font-size: 12px;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: var(--primary-dark);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 20px;
     flex-shrink: 0;
 }
 
 .account-nav {
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 .account-nav a,
 .account-nav .logout {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 18px;
+    gap: 12px;
+    padding: 13px 20px;
     color: var(--text);
     font-size: 14px;
-    border-left: 3px solid transparent;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-weight: 500;
+    transition: all 0.2s ease;
     width: 100%;
     text-align: left;
     background: transparent;
     border: none;
-    border-left: 3px solid transparent;
+    border-left: 4px solid transparent;
     cursor: pointer;
     font-family: inherit;
 }
 
 .account-nav a i {
     color: var(--text-muted);
-    width: 18px;
+    width: 20px;
+    font-size: 16px;
+    transition: color 0.2s;
 }
 
 .account-nav a:hover,
@@ -84,6 +92,7 @@
     background: var(--primary-light);
     color: var(--primary);
     border-left-color: var(--primary);
+    font-weight: 700;
 }
 
 .account-nav a:hover i,
@@ -93,6 +102,9 @@
 
 .account-nav .logout {
     color: var(--danger);
+    font-weight: 600;
+    margin-top: 8px;
+    border-top: 1px solid var(--border-color);
 }
 
 .account-nav .logout i {
@@ -100,152 +112,155 @@
 }
 
 .account-nav .logout:hover {
-    background: #fee2e2;
+    background: #fef2f2;
 }
-
-/* .auth-required moved to index.css */
 
 /* Main */
 .account-main {
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    padding: 24px;
+    border: 1px solid var(--border-color);
+    padding: 28px;
 }
 
 .profile-section h2 {
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    font-weight: 700;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
+    margin: 0 0 24px 0;
+    font-size: 20px;
+    font-weight: 800;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text);
 }
 
 .profile-form {
     display: grid;
-    gap: 16px;
-    max-width: 500px;
+    gap: 20px;
+    max-width: 540px;
 }
 
 .form-row {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .form-row label {
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 13.5px;
+    font-weight: 600;
     color: var(--text);
 }
 
 .form-row input,
 .form-row select,
 .form-row textarea {
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    padding: 11px 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
     font-size: 14px;
     color: var(--text);
     font-family: inherit;
     outline: none;
-    transition: border-color 0.15s;
+    transition: all 0.2s;
+    background: #fff;
 }
 
 .form-row input:focus,
 .form-row select:focus,
 .form-row textarea:focus {
     border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 .form-actions {
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
-/* Đổi mật khẩu */
+/* Password reset */
 .muted-info {
-    color: var(--text-muted);
-    font-size: 13px;
+    color: var(--primary-dark);
+    font-size: 13.5px;
     background: var(--primary-light);
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin: 0 0 20px 0;
-    line-height: 1.5;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+    border: 1px solid var(--primary-light);
 }
 
 .muted-info i {
     color: var(--primary);
-    margin-right: 4px;
+    margin-right: 6px;
 }
 
 .pwd-strength {
-    margin-top: 6px;
+    margin-top: 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .pwd-bars {
     display: flex;
-    gap: 3px;
+    gap: 4px;
     flex: 1;
-    max-width: 200px;
+    max-width: 220px;
 }
 
 .pwd-bars span {
     flex: 1;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    transition: background 0.15s;
+    height: 5px;
+    background: var(--border-color);
+    border-radius: 4px;
+    transition: background 0.2s;
 }
 
-.s-very-weak .pwd-bars span.filled { background: #dc2626; }
+.s-very-weak .pwd-bars span.filled { background: #ef4444; }
 .s-weak .pwd-bars span.filled      { background: #f97316; }
-.s-medium .pwd-bars span.filled    { background: #facc15; }
+.s-medium .pwd-bars span.filled    { background: #eab308; }
 .s-good .pwd-bars span.filled      { background: #84cc16; }
-.s-strong .pwd-bars span.filled    { background: #16a34a; }
+.s-strong .pwd-bars span.filled    { background: #10b981; }
 
 .pwd-strength small {
     font-size: 12px;
-    font-weight: 600;
-    min-width: 80px;
+    font-weight: 700;
+    min-width: 90px;
 }
 
-.s-very-weak small { color: #dc2626; }
+.s-very-weak small { color: #ef4444; }
 .s-weak small      { color: #f97316; }
-.s-medium small    { color: #b45309; }
+.s-medium small    { color: #ca8a04; }
 .s-good small      { color: #65a30d; }
-.s-strong small    { color: #16a34a; }
+.s-strong small    { color: #10b981; }
 
 .match-ok,
 .match-fail {
     margin-top: 6px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 12.5px;
+    font-weight: 600;
 }
 
-.match-ok { color: #16a34a; }
+.match-ok { color: #10b981; }
 .match-fail { color: var(--danger); }
 
 .forgot-hint {
-    margin-top: 20px;
-    padding: 12px 16px;
-    background: #fff8e1;
-    border-radius: 8px;
-    font-size: 13px;
-    color: #6b5b00;
-    border: 1px dashed var(--accent);
+    margin-top: 24px;
+    padding: 14px 18px;
+    background: #fffbeb;
+    border-radius: var(--radius-lg);
+    font-size: 13.5px;
+    color: #92400e;
+    border: 1px dashed #f59e0b;
 }
 
 .forgot-hint i {
-    color: var(--accent);
-    margin-right: 6px;
+    color: #f59e0b;
+    margin-right: 8px;
 }
 
 .forgot-hint a {
     color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .forgot-hint a:hover {

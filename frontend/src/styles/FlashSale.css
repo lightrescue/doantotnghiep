@@ -1,99 +1,157 @@
-.flash-sale {
-    margin: 28px auto;
-    background: linear-gradient(135deg, #ee0033 0%, #ff6b00 100%);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+.flash-sale-section {
+    margin: 36px auto;
+}
+
+.flash-sale-card {
+    background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%);
+    border-radius: var(--radius-xl);
+    padding: 6px;
+    box-shadow: 0 16px 36px rgba(220, 38, 38, 0.25);
 }
 
 .fs-head {
     display: flex;
     align-items: center;
-    gap: 24px;
-    padding: 16px 24px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 28px;
     color: #fff;
+    flex-wrap: wrap;
 }
 
-.fs-title {
+.fs-title-wrap {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
 }
 
-.fs-title > i {
-    font-size: 28px;
-    color: var(--accent);
-    filter: drop-shadow(0 0 8px rgba(255, 179, 0, 0.6));
-}
-
-.fs-title h2 {
+.fs-bolt-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
     font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: pulse-bolt 1.5s infinite alternate;
+}
+
+@keyframes pulse-bolt {
+    0% { transform: scale(1); filter: drop-shadow(0 0 4px #fbbf24); }
+    100% { transform: scale(1.1); filter: drop-shadow(0 0 14px #fbbf24); }
+}
+
+.fs-heading {
+    font-size: 26px;
     font-weight: 800;
     margin: 0;
     letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .fs-sub {
-    font-size: 13px;
-    opacity: 0.9;
-    margin-left: 4px;
+    font-size: 13.5px;
+    opacity: 0.95;
+    font-weight: 500;
 }
 
-.fs-timer {
+.fs-timer-wrap {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-left: auto;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 18px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+}
+
+.timer-label {
     font-size: 13px;
+    font-weight: 600;
+    color: #ffedd5;
 }
 
 .fs-clock {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-weight: 700;
+    gap: 6px;
 }
 
-.fs-clock b {
-    background: #1a1a1a;
-    color: #fff;
+.clock-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0f172a;
+    color: #fbbf24;
     padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    min-width: 28px;
-    text-align: center;
+    border-radius: 8px;
+    min-width: 38px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-.fs-all {
+.clock-box span {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.clock-box small {
+    font-size: 9px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.clock-dots {
+    font-weight: 800;
     color: #fff;
+    font-size: 16px;
+}
+
+.fs-view-all {
+    color: #0f172a;
+    background: #ffffff;
+    padding: 10px 22px;
+    border-radius: 999px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 
-.fs-all:hover {
-    color: var(--accent);
+.fs-view-all:hover {
+    background: #fbbf24;
+    transform: translateX(4px);
+    color: #0f172a;
 }
 
 .fs-grid {
-    background: #fff;
-    margin: 0 4px 4px 4px;
-    border-radius: 0 0 10px 10px;
-    padding: 16px;
+    background: #f8fafc;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 18px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
     .fs-grid { grid-template-columns: repeat(3, 1fr); }
-    .fs-head { flex-wrap: wrap; }
+    .fs-head { flex-direction: column; align-items: flex-start; }
+    .fs-timer-wrap { margin-left: 0; }
+}
+
+@media (max-width: 640px) {
+    .fs-grid { grid-template-columns: repeat(2, 1fr); }
+    .fs-heading { font-size: 20px; }
     .fs-sub { display: none; }
 }
 
-@media (max-width: 600px) {
-    .fs-grid { grid-template-columns: repeat(2, 1fr); }
-    .fs-title h2 { font-size: 18px; }
-}

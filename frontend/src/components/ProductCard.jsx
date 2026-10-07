@@ -22,23 +22,34 @@ const ProductCard = ({ product }) => {
             return;
         }
         addItem(product, 1);
-        toast.show(`Đã thêm "${product.name}" vào giỏ`, "success");
+        toast.show(`Đã thêm "${product.name}" vào giỏ hàng`, "success");
     };
 
     return (
         <Link to={`/san-pham/${product.id}`} className="product-card">
             {product.badge && (
-                <span className={`badge badge-${product.badge.startsWith("-") ? "discount" : "hot"}`}>
-                    {product.badge}
-                </span>
+                <div className={`product-badge-wrap ${product.badge.startsWith("-") ? "badge-discount" : "badge-hot"}`}>
+                    <span>{product.badge}</span>
+                </div>
             )}
 
             <div className="product-thumb">
                 <img src={product.image} alt={product.name} loading="lazy" />
+                <div className="product-quick-actions">
+                    <button type="button" className="action-btn" title="Thêm vào giỏ" onClick={onAdd}>
+                        <i className="fa-solid fa-bag-shopping"></i>
+                    </button>
+                    <span className="action-btn" title="Xem chi tiết">
+                        <i className="fa-solid fa-eye"></i>
+                    </span>
+                </div>
             </div>
 
             <div className="product-body">
-                <h3 className="product-name">{product.name}</h3>
+                {product.brand && (
+                    <span className="product-brand-tag">{product.brand}</span>
+                )}
+                <h3 className="product-name" title={product.name}>{product.name}</h3>
 
                 <div className="product-price">
                     <span className="price-now">{formatPrice(product.price)}</span>
@@ -47,19 +58,18 @@ const ProductCard = ({ product }) => {
                     )}
                 </div>
 
-                {discount > 0 && (
-                    <div className="product-discount">Tiết kiệm {discount}%</div>
-                )}
-
                 <div className="product-meta">
-                    <span className="rating">
-                        <i className="fa-solid fa-star"></i> {product.rating}
-                    </span>
-                    <span className="sold">Đã bán {product.sold}</span>
+                    <div className="rating">
+                        <i className="fa-solid fa-star"></i>
+                        <span>{product.rating || "5.0"}</span>
+                    </div>
+                    <div className="sold">
+                        <i className="fa-solid fa-fire-flame-curved"></i> Đã bán {product.sold || 120}
+                    </div>
                 </div>
 
                 <button type="button" className="btn-buy" onClick={onAdd}>
-                    <i className="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    <i className="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
                 </button>
             </div>
         </Link>
@@ -67,3 +77,4 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+

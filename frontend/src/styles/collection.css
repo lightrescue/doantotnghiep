@@ -1,5 +1,7 @@
 .collection-page {
-    padding: 16px;
+    padding: 24px 16px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .breadcrumbs {
@@ -7,12 +9,14 @@
     align-items: center;
     gap: 8px;
     font-size: 13px;
+    font-weight: 500;
     color: var(--text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .breadcrumbs a {
     color: var(--text-muted);
+    transition: color 0.2s;
 }
 
 .breadcrumbs a:hover {
@@ -21,28 +25,30 @@
 
 .breadcrumbs i {
     font-size: 10px;
+    opacity: 0.6;
 }
 
 .collection-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 20px;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
     align-items: start;
 }
 
 /* Sidebar */
 .filter-sidebar {
     background: #fff;
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: var(--radius-xl);
+    padding: 20px;
     box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
     position: sticky;
-    top: 160px;
+    top: 150px;
 }
 
 .filter-group {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .filter-group:last-child {
@@ -50,40 +56,47 @@
 }
 
 .filter-group h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .filter-group ul {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .filter-group ul button {
     width: 100%;
     text-align: left;
-    padding: 8px 10px;
-    border-radius: 6px;
+    padding: 9px 12px;
+    border-radius: var(--radius-md);
     font-size: 13px;
+    font-weight: 500;
     color: var(--text);
     background: transparent;
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: background 0.15s, color 0.15s;
+    gap: 10px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .filter-group ul button i {
     color: var(--text-muted);
-    width: 14px;
+    width: 16px;
+    font-size: 14px;
 }
 
 .filter-group ul button:hover {
     background: var(--primary-light);
     color: var(--primary);
+    transform: translateX(4px);
 }
 
 .filter-group ul button:hover i,
@@ -94,41 +107,57 @@
 .filter-group ul button.active {
     background: var(--primary-light);
     color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .brand-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
 }
 
 .brand-list button {
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    padding: 7px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
     font-size: 12px;
+    font-weight: 600;
     background: #fff;
     color: var(--text);
-    transition: all 0.15s;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .brand-list button:hover {
     border-color: var(--primary);
     color: var(--primary);
+    background: var(--primary-light);
 }
 
 .brand-list button.active {
-    background: var(--primary);
+    background: var(--primary-gradient);
     color: #fff;
-    border-color: var(--primary);
+    border-color: transparent;
+    box-shadow: var(--shadow-sm);
 }
 
 .reset-filter {
     width: 100%;
-    margin-top: 14px;
-    padding: 8px 12px;
+    margin-top: 16px;
+    padding: 10px 14px;
     font-size: 13px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reset-filter:hover {
+    background: var(--gray-200);
+    color: var(--gray-900);
 }
 
 /* Main */
@@ -137,17 +166,19 @@
     justify-content: space-between;
     align-items: center;
     background: #fff;
-    padding: 16px 20px;
-    border-radius: 12px;
-    margin-bottom: 16px;
+    padding: 20px 24px;
+    border-radius: var(--radius-xl);
+    margin-bottom: 20px;
     box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
 }
 
 .page-title {
     margin: 0;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text);
+    letter-spacing: -0.5px;
 }
 
 .result-count {
@@ -159,42 +190,59 @@
 .sort-wrap {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .sort-wrap label {
     font-size: 13px;
+    font-weight: 600;
     color: var(--text-muted);
 }
 
 .sort-wrap select {
-    padding: 8px 12px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    padding: 9px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
     font-size: 13px;
-    background: #fff;
+    font-weight: 600;
+    background: var(--gray-50);
     color: var(--text);
     cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.sort-wrap select:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .collection-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 20px;
 }
 
 .empty {
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     padding: 60px 20px;
     text-align: center;
     color: var(--text-muted);
+    border: 1px dashed var(--border-color);
 }
 
 .empty i {
-    font-size: 48px;
-    margin-bottom: 12px;
-    color: #d1d5db;
+    font-size: 52px;
+    margin-bottom: 16px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1200px) {
+    .collection-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 992px) {
@@ -203,7 +251,7 @@
     .collection-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 600px) {
-    .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .collection-toolbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+@media (max-width: 640px) {
+    .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .collection-toolbar { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
